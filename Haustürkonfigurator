@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Tür Konfigurator</title>
+    <style>
+        .hidden { display: none; }
+        .option {
+            margin: 10px;
+            text-align: center;
+        }
+        img {
+            width: 150px; /* Bildgröße anpassen */
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        img:hover {
+            border-color: blue;
+        }
+        #ergebnis p {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="tuerTypForm">
+        <h2>Wähle den Tür-Typ:</h2>
+        <div class="option" onclick="setzeTuerTyp('Einteilige', 0)">
+            <img src="images/einteilige.jpg" alt="Einteilige">
+            <p>Einteilige</p>
+        </div>
+        <div class="option" onclick="setzeTuerTyp('Zweiteilige mit Oberlicht', 1000)">
+            <img src="images/zweiteilige_oberlicht.jpg" alt="Zweiteilige mit Oberlicht">
+            <p>Zweiteilige mit Oberlicht</p>
+        </div>
+        <div class="option" onclick="setzeTuerTyp('Zweiteilige mit Seitenteil links', 1000)">
+            <img src="images/zweiteilige_seitenteil_links.jpg" alt="Zweiteilige mit Seitenteil links">
+            <p>Zweiteilige mit Seitenteil links</p>
+        </div>
+        <div class="option" onclick="setzeTuerTyp('Zweiteilige mit Seitenteil rechts', 1000)">
+            <img src="images/zweiteilige_seitenteil_rechts.jpg" alt="Zweiteilige mit Seitenteil rechts">
+            <p>Zweiteilige mit Seitenteil rechts</p>
+        </div>
+        <div class="option" onclick="setzeTuerTyp('Dreiteilige', 2000)">
+            <img src="images/dreiteilige.jpg" alt="Dreiteilige">
+            <p>Dreiteilige</p>
+        </div>
+    </div>
+
+    <div id="tuerModellForm" class="hidden">
+        <h2>Wähle das Türmodell:</h2>
+        <!-- Alle Tür-Modell Optionen mit Preisen -->
+        <div class="option" onclick="setzeTuerModell('Leo', 3240, 3540)">
+            <img src="images/leo.jpg" alt="Leo">
+            <p>Leo</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Tina', 3440, 3740)">
+            <img src="images/tina.jpg" alt="Tina">
+            <p>Tina</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Nina', 3440, 3740)">
+            <img src="images/nina.jpg" alt="Nina">
+            <p>Nina</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Olivia', 3600, 3900)">
+            <img src="images/olivia.jpg" alt="Olivia">
+            <p>Olivia</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Aurora', 3600, 3900)">
+            <img src="images/aurora.jpg" alt="Aurora">
+            <p>Aurora</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Maya', 3600, 3900)">
+            <img src="images/maya.jpg" alt="Maya">
+            <p>Maya</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Teo', 3600, 3900)">
+            <img src="images/teo.jpg" alt="Teo">
+            <p>Teo</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Mina', 3600, 3900)">
+            <img src="images/mina.jpg" alt="Mina">
+            <p>Mina</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Lena', 3600, 3900)">
+            <img src="images/lena.jpg" alt="Lena">
+            <p>Lena</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Jelena', 3600, 3900)">
+            <img src="images/jelena.jpg" alt="Jelena">
+            <p>Jelena</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Luka', 3600, 3900)">
+            <img src="images/luka.jpg" alt="Luka">
+            <p>Luka</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Lisa', 3600, 3900)">
+            <img src="images/lisa.jpg" alt="Lisa">
+            <p>Lisa</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Tara', 3900, 4200)">
+            <img src="images/tara.jpg" alt="Tara">
+            <p>Tara</p>
+        </div>
+        <div class="option" onclick="setzeTuerModell('Mateo', 3900, 4200)">
+            <img src="images/mateo.jpg" alt="Mateo">
+            <p>Mateo</p>
+        </div>
+    </div>
+
+    <div id="tuerBaenderForm" class="hidden">
+        <h2>Wähle die Türbänder:</h2>
+        <div class="option" onclick="setzeTuerBaender('Rollenbänder')">
+            <img src="images/rollenbaender.jpg" alt="Rollenbänder">
+            <p>Rollenbänder</p>
+        </div>
+        <div class="option" onclick="setzeTuerBaender('Verdecktliegende Bänder')">
+            <img src="images/verdecktliegende_baender.jpg" alt="Verdecktliegende Bänder">
+            <p>Verdecktliegende Bänder</p>
+        </div>
+        <div class="option" onclick="setzeTuerBaender('Standard')">
+            <img src="images/standard_baender.jpg" alt="Standard">
+            <p>Standard</p>
+        </div>
+    </div>
+
+    <div id="tuerSchwelleForm" class="hidden">
+        <h2>Wähle die Schwellenart:</h2>
+        <div class="option" onclick="setzeTuerSchwelle('Flache Schwelle mit 0,5mm', 200)">
+            <img src="images/flache_schwelle.jpg" alt="Flache Schwelle mit 0,5mm">
+            <p>Flache Schwelle mit 0,5mm</p>
+        </div>
+        <div class="option" onclick="setzeTuerSchwelle('Standard', 0)">
+            <img src="images/standard_schwelle.jpg" alt="Standard">
+            <p>Standard</p>
+        </div>
+    </div>
+
+    <div id="tuerMasseForm" class="hidden">
+        <h2>Gib die Maße der Tür ein:</h2>
+        Breite (cm): <input type="text" id="breite">
+        Höhe (cm): <input type="text" id="hoehe">
+        <button onclick="berechnePreis()">Preis berechnen</button>
+    </div>
+
+    <div id="ergebnis" class="hidden">
+        <h2>Deine Konfiguration:</h2>
+        <p id="konfiguration"></p>
+        <p>Preis: <span id="preis"></span> €</p>
+    </div>
+
+    <script>
+        let konfiguration = {
+            tuerTypPreis: 0,
+            modellPreis: 0,
+            modellPreisUebermass: 0,
+            schwellePreis: 0
+        };
+
+        function setzeTuerTyp(typ, preis) {
+            konfiguration.tuerTypPreis = preis;
+            document.getElementById('tuerTypForm').classList.add('hidden');
+            document.getElementById('tuerModellForm').classList.remove('hidden');
+        }
+
+        function setzeTuerModell(modell, preis, preisUebermass) {
+            konfiguration.modellPreis = preis;
+            konfiguration.modellPreisUebermass = preisUebermass;
+            document.getElementById('tuerModellForm').classList.add('hidden');
+            document.getElementById('tuerBaenderForm').classList.remove('hidden');
+        }
+
+        function setzeTuerBaender(baender) {
+            document.getElementById('tuerBaenderForm').classList.add('hidden');
+            document.getElementById('tuerSchwelleForm').classList.remove('hidden');
+        }
+
+        function setzeTuerSchwelle(schwelle, preis) {
+            konfiguration.schwellePreis = preis;
+            document.getElementById('tuerSchwelleForm').classList.add('hidden');
+            document.getElementById('tuerMasseForm').classList.remove('hidden');
+        }
+
+        function berechnePreis() {
+            const breite = parseInt(document.getElementById('breite').value);
+            const hoehe = parseInt(document.getElementById('hoehe').value);
+            let preis = breite > 1070 || hoehe > 2200 ? konfiguration.modellPreisUebermass : konfiguration.modellPreis;
+            preis += konfiguration.tuerTypPreis + konfiguration.schwellePreis;
+            document.getElementById('preis').innerText = preis.toFixed(2);
+            document.getElementById('konfiguration').innerText = `Maße: ${breite} cm x ${hoehe} cm`;
+            document.getElementById('tuerMasseForm').classList.add('hidden');
+            document.getElementById('ergebnis').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
